@@ -1,32 +1,15 @@
 <?php
+
 namespace ExtensionsValley\Menumanager\Events;
 
-
 \Event::listen('admin.menu.groups', function ($collection) {
-
     $collection->put('extensionsvalley.menumanager', [
-//        'menu_text' => 'Menu Manager'
-//        , 'menu_icon' => '<i class="fa fa-bars"></i>'
-//        , 'acl_key' => 'extensionsvalley.menumanager.menupanel'
-//        ,
-
-        'menu_text' => 'Menu Manager'
+        'menu_text' => 'Menu Panel'
         , 'menu_icon' => '<i class="fa fa-bars"></i>'
-        , 'acl_key' => 'extensionsvalley.menumanager.menumanagement'
+        , 'acl_key' => 'extensionsvalley.menumanager.menupanel'
         , 'main_menu_key' => 'menu.manager'
         , 'level' => '0'
-        ,'sub_menu' => [
-            // '0' => [
-            //     'link' => '/admin/ExtensionsValley/menumanager/list/menutypes'
-            //     , 'menu_text' => 'Menu Types'
-            //     , 'acl_key' => 'extensionsvalley.menumanager.menutypes'
-            // ],
-            // '1' => [
-            //     'link' => '/admin/ExtensionsValley/menumanager/list/menuitems'
-            //     , 'menu_text' => 'Menu Items'
-            //     , 'acl_key' => 'extensionsvalley.menumanager.menuitems'
-            // ],
-
+        , 'sub_menu' => [
             '0' => [
                 'link' => '#'
                 , 'menu_text' => 'Menu Manager'
@@ -44,7 +27,7 @@ namespace ExtensionsValley\Menumanager\Events;
                         , 'level' => '2'
                         , 'vendor' => 'ExtensionsValley'
                         , 'namespace' => 'ExtensionsValley\Menumanager'
-                        , 'model' => 'Menutype'
+                        , 'model' => 'Menutypes'
                     ],
                     '1' => [
                         'link' => '/admin/list/menuitems'
@@ -59,12 +42,6 @@ namespace ExtensionsValley\Menumanager\Events;
                     ],
                 ],
             ],
-
-
         ],
-
-
     ]);
-
-
 });

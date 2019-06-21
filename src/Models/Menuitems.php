@@ -109,8 +109,6 @@ class Menuitems extends Model
 
 
 
-
-
     public $page_title = "Manage Menu Items";
 
     public $table_name = "menu_items";
@@ -124,6 +122,10 @@ class Menuitems extends Model
     public $model_name = 'ExtensionsValley\Menumanager\Models\Menuitems';
 
     public $listable = ['menu_name' => 'Name', 'menu_type' => 'Menu Type','ordering' => 'Order','status' => 'Status', 'created_at' => 'Sub Menus','is_new_tab' => 'Sub Menus'];
+
+    public $parameter_array = [
+        'acl_key' => 'extensionsvalley.menumanager.menuitems',
+    ];
 
     public $show_toolbar = ['view' => 'Show'
         , 'add' => 'Add'
@@ -181,7 +183,7 @@ class Menuitems extends Model
             $menuitems = $menuitems->Where('I.menu_type', $filter_menu_type);
         }
 
-        return \Datatables::of($menuitems)
+        return \DataTables::of($menuitems)
             ->editColumn('sl', '<input type="checkbox" name="cid[]" value="{{$id}}" class="cid_checkbox"/>')
             ->editColumn('status', '@if($status==1) <span class="glyphicon glyphicon-ok"> Published</span> @else <span class="glyphicon glyphicon-remove"> Unpublished</span> @endif')
             ->editColumn('created_at', '@if(ExtensionsValley\Menumanager\Models\Menuitems::whereNull("deleted_at")->Where("status",1)->Where("parent_menu",$id)->count() > 0)
