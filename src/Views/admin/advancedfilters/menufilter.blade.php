@@ -27,7 +27,6 @@
                 ]) !!}
             </div>
 
-
             <div class="form-group pull-right">
                     <div class="col-md-12 col-sm-2 col-xs-2 ">
                         <br>
@@ -35,8 +34,6 @@
                             <a href="{{Request::url()}}" class="btn btn-sm btn-danger"><i class="fa fa-close"></i> Clear</a>
                     </div>
                 </div>
-
-           
 
             {!! Form::token() !!}
             {!! Form::close() !!}
